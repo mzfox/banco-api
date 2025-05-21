@@ -1,0 +1,71 @@
+﻿openapi: 3.0.0
+info:
+  title: API Bancária
+  version: "1.0"
+  description: API RESTful para operações bancárias (conta e transações)
+paths:
+  /conta:
+    post:
+      summary: Cria uma nova conta
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                numero_conta:
+                  type: integer
+                saldo:
+                  type: number
+              required:
+                - numero_conta
+                - saldo
+      responses:
+        '201':
+          description: Conta criada com sucesso
+        '409':
+          description: Conta já existe
+    get:
+      summary: Consulta conta por número
+      parameters:
+        - name: numero_conta
+          in: query
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Conta encontrada
+        '404':
+          description: Conta não encontrada
+
+  /transacao:
+    post:
+      summary: Realiza uma transação
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                numero_conta:
+                  type: integer
+                valor:
+                  type: number
+                forma_pagamento:
+                  type: string
+                  enum:
+                    - D
+                    - C
+                    - P
+              required:
+                - numero_conta
+                - valor
+                - forma_pagamento
+      responses:
+        '201':
+          description: Transação realizada com sucesso
+        '404':
+          description: Conta não encontrada ou saldo insuficiente
