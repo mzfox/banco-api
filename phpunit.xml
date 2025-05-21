@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="tests/bootstrap.php"
+         colors="true"
+         verbose="true"
+         stopOnFailure="false"
+         testdox="true">
+    <testsuites>
+        <testsuite name="API Bancária">
+            <directory>./tests</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
