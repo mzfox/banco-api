@@ -12,7 +12,7 @@ Este projeto fornece uma **API RESTful** em **PHP puro** com **Docker**, para ge
 
 2. **Clone o repositório**  
    ```bash
-   git clone https://github.com/seu-usuario/banco-api.git
+   git clone https://github.com/mzfox/banco-api.git
    cd banco-api
    ```
 
