@@ -23,8 +23,25 @@ Este projeto fornece uma **API RESTful** em **PHP puro** com **Docker**, para ge
    ```
 
    - A API ficará disponível em `http://localhost:8000`  
-   - O Adminer (MySQL) em `http://localhost:8080` (user: `root` / pass: `root`)  
 
+4. ## 🗄️ Criar a tabela no banco
+   O MySQL já cria o **banco** (`banco_digital`) automaticamente, mas você precisa criar a **tabela** `contas`. Siga estes passos:
+
+   1. Acesse o Adminer em:  
+      - O Adminer (MySQL) em `http://localhost:8080` (user: `root` / pass: `root`)
+   2. Preencha:
+      - **Servidor**: `db`  
+      - **Usuário**: `root`  
+      - **Senha**: `root`  
+      - **Banco de dados**: `banco_digital`
+        
+   3. Clique em **Login** → **SQL Command** e cole:
+      ```sql
+         CREATE TABLE IF NOT EXISTS contas (
+         id INT AUTO_INCREMENT PRIMARY KEY,
+         numero_conta INT NOT NULL UNIQUE,
+           saldo DECIMAL(10,2) NOT NULL
+         );
 ---
 
 ## 🧪 Testando a API
